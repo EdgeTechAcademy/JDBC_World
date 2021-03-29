@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html xmlns:th="https://thymeleaf.org">
+<head lang="en">
+    <title th:text${crime.title}></title>
+</head>
+<body>
+
+<h2>Edge Tech Academy</h2>
+<form action="search" method="post">
+    <label for="description">Search for Description</label>
+    <input type="text" id="description" name="description">
+    <button type="submit">Search for Description</button>
+</form>
+<table class="table table-striped">
+    <tr>
+        <th>report Date</th>
+        <th>offense Desc</th>
+        <th>description Cd</th>
+        <th>borough</th>
+        <th>location Of Occurrence</th>
+        <th>premise Type</th>
+        <th>parks Name</th>
+    </tr>
+    <tr th:each="crime : ${crimes}">
+        <td th:text="${crime.reportDate}">b</td>
+        <td th:text="${crime.offenseDesc}">c</td>
+        <td th:text="${crime.descriptionCd}"></td>
+        <td th:text="${crime.borough}"></td>
+        <td th:text="${crime.locationOfOccurence}"></td>
+        <td th:text="${crime.premiseType}"></td>
+        <td th:text="${crime.parksName}"></td>
+    </tr>
+</table>
+
+</body>
+</html>
